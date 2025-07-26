@@ -7,19 +7,33 @@ A complete full-stack application with React.js frontend and Node.js backend for
 \`\`\`
 mesothelioma-react-site/
 ├── frontend/                 # React.js application
+
 │   ├── src/
+
 │   │   ├── components/
+
 │   │   ├── App.js
+
 │   │   ├── App.css
+
 │   │   └── index.js
+
 │   ├── public/
+
 │   └── package.json
+
 ├── backend/                  # Node.js API server
+
 │   ├── server.js
+
 │   ├── database/
+
 │   │   └── init.sql
+
 │   ├── package.json
+
 │   └── .env.example
+
 └── README.md
 \`\`\`
 
