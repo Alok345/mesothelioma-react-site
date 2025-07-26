@@ -320,7 +320,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  max-height: 600px;
+  min-height: 600px;
 }
 
 .form-header-section {
