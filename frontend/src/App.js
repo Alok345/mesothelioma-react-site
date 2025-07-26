@@ -3,6 +3,7 @@
 import { useState } from "react";
 import "./App.css";
 
+const base = "https://kanzenassgnbackend-production.up.railway.app"
 function App() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -40,7 +41,7 @@ function App() {
     setSubmitMessage("");
 
     try {
-      const response = await fetch("/api/form", {
+      const response = await fetch(`${base}/api/form`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
