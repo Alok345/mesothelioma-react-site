@@ -1,0 +1,800 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.app-container {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+/* PURE CSS WOODEN BACKGROUND - ABSOLUTELY NO IMAGES */
+.wooden-texture-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  /* Complex wooden gradient - 20+ layers for realism */
+  background: linear-gradient(
+    135deg,
+    #8b4513 0% /* Saddle Brown */,
+    #a0522d 8% /* Sienna */,
+    #cd853f 16% /* Peru */,
+    #daa520 24% /* Goldenrod */,
+    #f4a460 32% /* Sandy Brown */,
+    #deb887 40% /* Burlywood */,
+    #f5deb3 48% /* Wheat */,
+    #faebd7 56% /* Antique White */,
+    #fff8dc 64% /* Cornsilk */,
+    #f5deb3 72% /* Wheat */,
+    #deb887 80% /* Burlywood */,
+    #cd853f 88% /* Peru */,
+    #a0522d 96% /* Sienna */,
+    #8b4513 100% /* Saddle Brown */
+  );
+
+  /* Multiple wood grain texture layers - NO IMAGES */
+  /* Fine vertical wood grain */
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(139, 69, 19, 0.06) 1px,
+      rgba(139, 69, 19, 0.06) 2px,
+      transparent 2px,
+      transparent 4px
+    ),
+    /* Medium vertical grain */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(160, 82, 45, 0.04) 3px,
+      rgba(160, 82, 45, 0.04) 5px
+    ),
+    /* Horizontal subtle lines */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 12px,
+      rgba(101, 67, 33, 0.03) 12px,
+      rgba(101, 67, 33, 0.03) 16px
+    ),
+    /* Wood knots - multiple realistic positions */
+    radial-gradient(ellipse 40px 20px at 12% 18%, rgba(101, 67, 33, 0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 60px 30px at 88% 82%, rgba(139, 69, 19, 0.25) 0%, transparent 75%),
+    radial-gradient(ellipse 35px 18px at 65% 12%, rgba(160, 82, 45, 0.2) 0%, transparent 65%),
+    radial-gradient(ellipse 50px 25px at 22% 88%, rgba(205, 133, 63, 0.18) 0%, transparent 80%),
+    radial-gradient(ellipse 45px 22px at 92% 28%, rgba(139, 69, 19, 0.28) 0%, transparent 72%),
+    radial-gradient(ellipse 38px 19px at 6% 72%, rgba(160, 82, 45, 0.22) 0%, transparent 68%),
+    radial-gradient(ellipse 55px 28px at 45% 95%, rgba(101, 67, 33, 0.2) 0%, transparent 78%),
+    radial-gradient(ellipse 42px 21px at 78% 5%, rgba(139, 69, 19, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 48px 24px at 35% 45%, rgba(160, 82, 45, 0.15) 0%, transparent 75%),
+    radial-gradient(ellipse 52px 26px at 85% 65%, rgba(205, 133, 63, 0.16) 0%, transparent 77%),
+    /* Lighting and shadow effects */
+    radial-gradient(ellipse 200px 100px at 25% 8%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 180px 90px at 85% 92%, rgba(255, 255, 255, 0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 150px 75px at 8% 55%, rgba(255, 255, 255, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 220px 110px at 75% 35%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+    /* Wood texture patterns */
+    linear-gradient(42deg, transparent 30%, rgba(139, 69, 19, 0.02) 50%, transparent 70%),
+    linear-gradient(-38deg, transparent 25%, rgba(160, 82, 45, 0.03) 50%, transparent 75%),
+    linear-gradient(28deg, transparent 35%, rgba(205, 133, 63, 0.025) 55%, transparent 75%),
+    linear-gradient(-52deg, transparent 20%, rgba(101, 67, 33, 0.035) 45%, transparent 70%),
+    /* Additional depth layers */
+    linear-gradient(15deg, transparent 40%, rgba(139, 69, 19, 0.015) 60%, transparent 80%),
+    linear-gradient(-25deg, transparent 45%, rgba(160, 82, 45, 0.02) 65%, transparent 85%);
+
+  /* Subtle blur for realistic wood texture depth */
+  filter: blur(0.2px);
+}
+
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Left Cards Section */
+.left-cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Free Case Review Card */
+.free-case-review-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.title-section {
+  flex: 1;
+}
+
+.title-line {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 0.85;
+  color: #2c3e50;
+  margin: 0;
+  letter-spacing: -1.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.help-text-section {
+  text-align: center;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.help-text {
+  font-size: 17px;
+  color: #7f8c8d;
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+/* Circular Badge - Pure CSS Gradient */
+.circular-slots-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba(142, 68, 173, 0.4), 0 10px 25px rgba(52, 152, 219, 0.3), inset 0 1px 0
+    rgba(255, 255, 255, 0.2);
+  transform: rotate(-20deg);
+  z-index: 10;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-text-content {
+  text-align: center;
+  color: white;
+  font-weight: 900;
+  line-height: 1;
+  transform: rotate(20deg);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.badge-only {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 2px;
+}
+
+.badge-number {
+  display: block;
+  font-size: 38px;
+  font-weight: 900;
+  margin: 4px 0;
+}
+
+.badge-slots {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 2px;
+}
+
+.badge-left {
+  display: block;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+/* Features List */
+.features-list {
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.blue-bg {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.purple-bg {
+  background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
+}
+
+.orange-bg {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+/* CSS-Only Icons - NO IMAGES */
+.shield-icon {
+  width: 16px;
+  height: 18px;
+  background: white;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.shield-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 6px solid white;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.check-icon::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.star-icon {
+  width: 16px;
+  height: 16px;
+  background: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.feature-label {
+  font-size: 17px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* Contact Button */
+.contact-us-btn {
+  background: linear-gradient(135deg, #d4a574 0%, #c8956d 100%);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 35px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4), 0 6px 15px rgba(212, 165, 116, 0.2);
+  width: 100%;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-us-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(212, 165, 116, 0.5), 0 8px 20px rgba(212, 165, 116, 0.3);
+}
+
+.arrow-icon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.contact-us-btn:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+/* Hero Question Card */
+.hero-question-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-question {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.25;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.purple-text {
+  color: #8e44ad;
+}
+
+.question-subtitle {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.bullet-points {
+  list-style: none;
+  padding: 0;
+}
+
+.bullet-points li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.bullet-points li::before {
+  content: "•";
+  color: #8e44ad;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: -3px;
+}
+
+/* Right Form Section */
+.right-form-section {
+  display: flex;
+  align-items: stretch;
+}
+
+.claim-form-card {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.95) 0%, rgba(142, 68, 173, 0.95) 100%);
+  border-radius: 28px;
+  padding: 50px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25), 0 15px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-title-area {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-main-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.status-message {
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.success-msg {
+  background: rgba(46, 125, 50, 0.9);
+  color: white;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+.error-msg {
+  background: rgba(211, 47, 47, 0.9);
+  color: white;
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+.claim-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.form-field {
+  width: 100%;
+  padding: 18px 18px 12px 18px;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  backdrop-filter: blur(10px);
+}
+
+.form-field::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-field:focus {
+  outline: none;
+  border-bottom-color: white;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+.field-label {
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.95) 0%, rgba(142, 68, 173, 0.95) 100%);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Date Fields - CSS Icons Only */
+.date-group {
+  position: relative;
+}
+
+.date-field {
+  color-scheme: dark;
+}
+
+.date-icon-css {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.date-icon-css::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 2px;
+  width: 2px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1px;
+}
+
+.date-icon-css::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 2px;
+  width: 2px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1px;
+}
+
+/* Select Fields - CSS Arrow Only */
+.select-group {
+  position: relative;
+}
+
+.select-field {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 45px;
+}
+
+.select-field option {
+  background: #2c3e50;
+  color: white;
+  padding: 10px;
+}
+
+.select-arrow-css {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+/* Textarea */
+.textarea-group {
+  position: relative;
+  grid-column: 1 / -1;
+}
+
+.textarea-field {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Checkbox Section */
+.checkbox-area {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.checkbox-field {
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: #d4a574;
+  cursor: pointer;
+}
+
+.checkbox-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.link-text {
+  color: #d4a574;
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.submit-claim-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #2c3e50;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 35px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.submit-claim-btn:hover:not(:disabled) {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.submit-claim-btn:disabled {
+  background: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-top: 2px solid #2c3e50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 40px 60px;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 40px;
+    padding: 30px 40px;
+  }
+
+  .right-form-section {
+    grid-row: 1;
+  }
+
+  .left-cards-section {
+    grid-row: 2;
+  }
+
+  .circular-slots-badge {
+    position: static;
+    margin: 25px auto 0;
+    transform: none;
+  }
+
+  .card-header-area {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .help-text-section {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .free-case-review-card,
+  .hero-question-card,
+  .claim-form-card {
+    padding: 30px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .title-line {
+    font-size: 42px;
+  }
+
+  .form-main-title {
+    font-size: 32px;
+  }
+
+  .main-question {
+    font-size: 28px;
+  }
+
+  .circular-slots-badge {
+    width: 130px;
+    height: 130px;
+  }
+
+  .badge-number {
+    font-size: 32px;
+  }
+
+  .badge-only,
+  .badge-slots,
+  .badge-left {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 15px;
+  }
+
+  .free-case-review-card,
+  .hero-question-card,
+  .claim-form-card {
+    padding: 25px;
+  }
+
+  .title-line {
+    font-size: 36px;
+  }
+
+  .form-main-title {
+    font-size: 28px;
+  }
+
+  .main-question {
+    font-size: 24px;
+  }
+
+  .circular-slots-badge {
+    width: 110px;
+    height: 110px;
+  }
+
+  .badge-number {
+    font-size: 28px;
+  }
+
+  .badge-only,
+  .badge-slots,
+  .badge-left {
+    font-size: 12px;
+  }
+}
